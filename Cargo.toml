@@ -1,0 +1,64 @@
+[package]
+name = "lcore-verifier"
+version = "0.1.0"
+edition = "2021"
+authors = ["L{CORE} Team"]
+description = "RISC Zero proof verification side-car for L{CORE} IoT platform"
+
+[dependencies]
+# Async runtime
+tokio = { version = "1.40", features = ["full"] }
+
+# RISC Zero proof verification
+risc0-zkvm = { version = "0.21" }
+risc0-zkp = { version = "0.21" }
+
+# Cryptography
+k256 = { version = "0.13", features = ["ecdsa", "ecdsa-core"] }
+sha3 = "0.10"
+hex = "0.4"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+bincode = "1.3"
+
+# HTTP client
+reqwest = { version = "0.12", features = ["json"] }
+
+# GraphQL client
+graphql_client = { version = "0.14", features = ["reqwest"] }
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Error handling
+anyhow = "1.0"
+thiserror = "1.0"
+
+# Environment variables
+dotenv = "0.15"
+
+# Configuration
+toml = "0.8"
+
+# Command line arguments
+clap = { version = "4.0", features = ["derive"] }
+
+# Time handling
+chrono = { version = "0.4", features = ["serde"] }
+
+# Ethereum types
+alloy-primitives = "0.7.0"
+
+# Web framework for health checks
+warp = "0.3"
+
+[dev-dependencies]
+tokio-test = "0.4"
+mockito = "1.4"
+
+[profile.release]
+opt-level = 3
+lto = true

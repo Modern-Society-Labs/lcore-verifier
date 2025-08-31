@@ -1,0 +1,33 @@
+# L{CORE} Verifier Configuration Example
+# Copy to verifier.toml and update with your values
+
+# GraphQL endpoint for querying proof requests
+graphql_endpoint = "http://localhost:8000/graphql"
+
+# InputBox HTTP endpoint for submitting receipts
+inputbox_endpoint = "http://localhost:8080/input"
+
+# DApp address for InputBox submissions
+dapp_address = "0x0000000000000000000000000000000000000000"
+
+# Private key for signing verified receipts (without 0x prefix)
+# IMPORTANT: Use environment variable VERIFIER_PRIVATE_KEY in production
+verifier_private_key = "your_private_key_here"
+
+# Allowed RISC Zero image IDs
+allowed_image_ids = [
+    "0xYOUR_IOT_VALIDATION_IMAGE_ID_HERE",
+    "0xYOUR_IOT_PRIVACY_IMAGE_ID_HERE"
+]
+
+# Polling interval in seconds
+poll_interval_secs = 10
+
+# IPFS gateway for fetching receipts
+ipfs_gateway = "https://ipfs.io"
+
+# Maximum receipt size in bytes (10 MB)
+max_receipt_size = 10485760
+
+# Request timeout in seconds
+request_timeout_secs = 30
